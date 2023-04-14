@@ -1,13 +1,13 @@
 import type { FastifyInstance, FastifyRequest } from 'fastify'
-import { apiPath as wechatApiPath, wechatToken } from '../const'
+import { wechatApiPath } from '../const'
 import { toSha1 } from '../utils/encryptor'
 import type { VerifyQuery } from './types'
 
 export function checkIsWechatRequest(request: FastifyRequest) {
   const q = request.query as VerifyQuery
   try {
-    const arr: string[] = [wechatToken, q.timestamp.toString(), q.nonce.toString()]
-    arr.sort((a, b) => a.localeCompare(b))
+    const arr: string[] = [process.env.WECHAT_TOKEN, q.timestamp.toString(), q.nonce.toString()]
+    arr.sort()
     const sha1 = toSha1(arr.join(''))
     if (sha1 === q.signature) {
       // Success.

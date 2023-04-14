@@ -3,7 +3,7 @@ import type { ChatCompletionRequestMessage } from 'azure-openai'
 import { Configuration, OpenAIApi } from 'azure-openai'
 
 export async function GetAzureOpenAIAnswerAsync(content: string, user: string) {
-  console.log(`user ${user} try to get prompt answer.`)
+  console.log(`user ${user} try to get prompt answer for \"${content}\".`)
   try {
     const configuration = new Configuration({
       azure: {
@@ -18,8 +18,8 @@ export async function GetAzureOpenAIAnswerAsync(content: string, user: string) {
       prompt: content,
       max_tokens: 800,
     })
-    console.log('prompt response-content: ', completion.data.choices[0].text)
-    return completion.data.choices[0].text
+    console.log('prompt response-content: ', completion.data.choices[0].text?.trim())
+    return completion.data.choices[0].text?.trim()
   }
   catch (error) {
     if (error.response)
@@ -31,7 +31,7 @@ export async function GetAzureOpenAIAnswerAsync(content: string, user: string) {
 }
 
 export async function GetAzureOpenAIChatAnswerAsync(messages: Array<ChatCompletionRequestMessage>, user: string) {
-  console.log(`user ${user} try to get chat answer.`)
+  console.log(`user ${user} try to get chat answer for \"${messages[0].content}\".`)
   try {
     const configuration = new Configuration({
       azure: {
@@ -46,8 +46,8 @@ export async function GetAzureOpenAIChatAnswerAsync(messages: Array<ChatCompleti
       messages,
       max_tokens: 800,
     })
-    console.log('chat response-content: ', completion.data.choices[0].message.content)
-    return completion.data.choices[0].message.content
+    console.log('chat response-content: ', completion.data.choices[0].message.content?.trim())
+    return completion.data.choices[0].message.content?.trim()
   }
   catch (error) {
     if (error.response)
