@@ -52,3 +52,11 @@ Before you begin, check whether the Node.js environment exists, and then check w
   ```bash
   pnpm dev
   ```
+
+# Features
+
+1. WeChat official account chat robot
+2. Provide support for the last 6 historical messages using memory cache
+3. Support Wechat voice message using Wechat Recognition
+4. Extend Wechat timeout configuation to 13s
+5. Return hyper link when backend service timeout  
