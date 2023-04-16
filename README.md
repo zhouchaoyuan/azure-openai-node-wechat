@@ -1,5 +1,14 @@
 # openai-node-wechat
 This repository contains code for a Node.js application that uses the OpenAI API to enable real-time chatting with a WeChat official account. With this code, you can build your own chatbot for your WeChat official account using the OpenAI API.
+
+### Features
+
+1. WeChat official account chat robot
+2. Provide support for the last 6 historical messages using memory cache
+3. Support Wechat voice message using Wechat Recognition
+4. Extend Wechat timeout configuation to 13s
+5. Return hyper link when backend service timeout  
+
 # Prerequisite 
 Before you begin, check whether the Node.js environment exists, and then check whether pnpm is installed.
 
@@ -52,11 +61,3 @@ Before you begin, check whether the Node.js environment exists, and then check w
   ```bash
   pnpm dev
   ```
-
-# Features
-
-1. WeChat official account chat robot
-2. Provide support for the last 6 historical messages using memory cache
-3. Support Wechat voice message using Wechat Recognition
-4. Extend Wechat timeout configuation to 13s
-5. Return hyper link when backend service timeout  
