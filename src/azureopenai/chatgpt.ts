@@ -31,7 +31,7 @@ export async function GetAzureOpenAIAnswerAsync(content: string, user: string) {
 }
 
 export async function GetAzureOpenAIChatAnswerAsync(messages: Array<ChatCompletionRequestMessage>, user: string) {
-  console.log(`user ${user} try to get chat answer for \"${messages[0].content}\".`)
+  console.log(`user ${user} try to get chat answer for \"${messages[messages.length - 1].content}\".`)
   try {
     const configuration = new Configuration({
       azure: {

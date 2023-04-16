@@ -6,3 +6,7 @@ export const wechatApiPath = '/wechat/api'
 export const promptPath = '/prompt-process'
 export const chatPath = '/chat-process'
 /// API ADDR END
+
+/// GENERAL START
+export const pastMessagesIncluded = 6
+/// GENERAL START
