@@ -61,3 +61,12 @@ Before you begin, check whether the Node.js environment exists, and then check w
   ```bash
   pnpm dev
   ```
+  
+- Update Const Configuration
+  update deployment name from ./src/const.ts 
+  ```
+  export const chatDeploymentName = ${your deployment name}
+  export const promptDeploymentName = ${your deployment name}
+  export const chatModel = ${your chat model name} //can be 'gpt-35-turbo'
+  export const promptModel = ${your prompt model name} // can be 'text-davinci-003'
+  ```

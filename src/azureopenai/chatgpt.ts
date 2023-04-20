@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import type { ChatCompletionRequestMessage } from 'azure-openai'
 import { Configuration, OpenAIApi } from 'azure-openai'
+import { chatDeploymentName, chatModel, promptDeploymentName, promptModel } from 'src/const'
 
 export async function GetAzureOpenAIAnswerAsync(content: string, user: string) {
   console.log(`user ${user} try to get prompt answer for \"${content}\".`)
@@ -9,12 +10,12 @@ export async function GetAzureOpenAIAnswerAsync(content: string, user: string) {
       azure: {
         apiKey: process.env.OPENAI_API_KEY,
         endpoint: process.env.OPENAI_API_BASE_URL,
-        deploymentName: 'TextIdeaCreation',
+        deploymentName: promptDeploymentName,
       },
     })
     const openai = new OpenAIApi(configuration)
     const completion = await openai.createCompletion({
-      model: 'text-davinci-003',
+      model: promptModel,
       prompt: content,
       max_tokens: 800,
     })
@@ -37,12 +38,12 @@ export async function GetAzureOpenAIChatAnswerAsync(messages: Array<ChatCompleti
       azure: {
         apiKey: process.env.OPENAI_API_KEY,
         endpoint: process.env.OPENAI_API_BASE_URL,
-        deploymentName: 'IdeaCreation',
+        deploymentName: chatDeploymentName,
       },
     })
     const openai = new OpenAIApi(configuration)
     const completion = await openai.createChatCompletion({
-      model: 'gpt-35-turbo',
+      model: chatModel,
       messages,
       max_tokens: 800,
     })

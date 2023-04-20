@@ -9,4 +9,8 @@ export const chatPath = '/chat-process'
 
 /// GENERAL START
 export const pastMessagesIncluded = 6
+export const chatDeploymentName = 'IdeaCreation'
+export const promptDeploymentName = 'TextIdeaCreation'
+export const chatModel = 'gpt-35-turbo'
+export const promptModel = 'text-davinci-003'
 /// GENERAL START
